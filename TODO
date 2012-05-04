@@ -1,2 +1,4 @@
 Test if PDFs can be embedded in the browser and use that instead of an iframe.
 Make links able to be forcefully downloaded.
+Use YQL to get Google content.
+Make a[href$='.pdf'] default for $.piff.
