@@ -29,28 +29,22 @@ There are five main options you can set; however, for the window object, refer t
 1.  **cssDir** (default: "css") - the directory the CSS (and related images) for PIFF will be stored.
 2.  **dir** (default: "") - a string to prepend before the URL path (i.e., http://www.google.com/DIR/etc/).
 3.  **exceptions** (default: null) - a regular expression you can use to exclude certain matching HREFs.
-4.  **modal** (default: true) - modal or popup window.
+4.  **modal** (default: true) - modal (can be ```"fancybox"``` [be sure to include the appropriate files for this], ```true``` for colorbox, or ```false``` or popup window).
 5.  **theme** (default: none) - the name of a theme to load (from the path specified by cssDir).  The format of a PIFF theme CSS file is **NAME.css**.  **NOTE:** don't include **.css** when specifying this option (i.e., to change the theme to "elegant", you simply set it as such).
 6.  **window** (default: false) - an object containing settings for the window to be opened.  See <a href="http://www.jacklmoore.com/colorbox">this page</a>.
 
 Examples
 -----------
 
-As simple as it gets (no options specified and without selector [selects all anchor tags]):
+As simple as it gets (no options specified and without selector [selects all anchor tags whose HREF ends with .pdf]):
 
 ```javascript
-<script language="javascript" type="text/javascript">
-
 $.piff();
-
-</script>
 ```
 
 Some fun options:
 
 ```javascript
-<script language="javascript" type="text/javascript">
-
 $("a.pdf").piff( {
 	
 	theme: "sharp"
@@ -66,8 +60,6 @@ $("a.pdf").piff( {
 	}
 	
 } );
-
-</script>
 ```
 
 Browser support
