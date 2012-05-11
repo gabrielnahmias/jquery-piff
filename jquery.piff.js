@@ -1,5 +1,5 @@
 /**
-  * PIFF v1.0.0
+  * PIFF v1.0.1
   * http://github.com/terrasoftlabs/piff
   *
   * Copyright © 2012 Gabriel Nahmias.
@@ -88,8 +88,7 @@
 			
 		function doIt(self, event) {
 			
-			// use $.colorbox on view.asp links!!!
-			// integrate following into elememovements and btat
+			// Integrate following URL-related stuff into elememovements and btat.
 			
 			var self = $(self);
 			
@@ -98,9 +97,25 @@
 			
 			var sLink = 'http://docs.google.com/gview?url=' + sPath + ( ( sPath[sPath.length - 1] == "/" ) ? "" : "/" ) + self.attr("href") + '&embedded=true';
 			
+			var sIframe = '<iframe class="' + sClass + ' ' + oSettings.theme + '" frameborder="0" height="100%" id="' + sID + '" src="' + sLink + '" width="100%"></iframe>';
+			
 			if (!oSettings.modal) {
 				
 				window.open(sLink, "pdf", "status=" + ( (oSettings.window.status) ? 1 : 0 ) + ",toolbar=" + ( (oSettings.window.toolbar) ? 1 : 0 ) + ",location=" + ( (oSettings.window.location) ? 1 : 0 ) + ",menubar=" + ( (oSettings.window.menubar) ? 1 : 0 ) + ",directories=" + ( (oSettings.window.directories) ? 1 : 0 ) + ",width=" + oSettings.window.width + ",height=" + oSettings.window.height );
+				
+			} else if (oSettings.modal == "fancybox") {
+				
+				$.fancybox(
+					
+					$.extend( {
+						
+						href: sLink,
+						
+						type: "iframe"
+						
+					} , oSettings.window )
+					
+				);
 				
 			} else {
 				
@@ -108,7 +123,7 @@
 					
 					$.extend( {
 						
-						html: '<iframe class="' + sClass + ' ' + oSettings.theme + '" frameborder="0" height="100%" id="' + sID + '" src="' + sLink + '" width="100%"></iframe>'
+						html: sIframe
 						
 					} , oSettings.window )
 					
