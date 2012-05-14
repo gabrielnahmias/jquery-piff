@@ -67,7 +67,7 @@ Browser support
 
 * Google **Chrome**
 * Mozilla **Firefox** 3+
-* IE9 kind of works (breaks after first link clicked) :(
+* IE9
 * Others as of yet untested (help me out!)
 
 License
